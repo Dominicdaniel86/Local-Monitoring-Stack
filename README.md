@@ -70,16 +70,16 @@ curl http://localhost:5000/metrics
 
 2. Add Prometheus as a data source
 
-    2.1 Go to Connections -> Data Sources -> Add data source
-    2.2 Choose Prometheus
-    2.3 Set URL to <http://prometheus:9090> (use container name, not localhost)
-    2.4 Click Save & Test
+    2.1 Go to Connections -> Data Sources -> Add data source  
+    2.2 Choose Prometheus  
+    2.3 Set URL to <http://prometheus:9090> (use container name, not localhost)  
+    2.4 Click Save & Test  
 
 3. Import the Grafana dashboard
 
-    3.1 Got to Dashboards -> New -> Import
-    3.2 Copy-paste the content of `/grafana/test-dashboard.json` into the JSON field
-    3.3 Click on Load and give the Dashboard a name
+    3.1 Got to Dashboards -> New -> Import  
+    3.2 Copy-paste the content of `/grafana/test-dashboard.json` into the JSON field  
+    3.3 Click on Load and give the Dashboard a name  
 
 ### Step 7 - AWS Deployment
 
@@ -102,4 +102,4 @@ curl http://localhost:5000/metrics
 
 5. Follow steps 2 to 6 on the EC2 instance
 
-> [!Info] Note that you might need to assign an IPV-4 address to your EC2 instance in order to open the Prometheus/Grafana interfaces, as localhost is not going to work here.
+> Note that you might need to assign an IPV-4 address to your EC2 instance in order to open the Prometheus/Grafana interfaces, as localhost is not going to work here.
