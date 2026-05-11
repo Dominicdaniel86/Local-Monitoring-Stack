@@ -1,4 +1,12 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "type": "datasource",
+      "pluginId": "prometheus"
+    }
+  ],
   "annotations": [
     {
       "kind": "AnnotationQuery",
@@ -36,7 +44,7 @@
                   "hidden": false,
                   "query": {
                     "datasource": {
-                      "name": "aflp8if8d8j5sd"
+                      "name": "${DS_PROMETHEUS}"
                     },
                     "group": "prometheus",
                     "kind": "DataQuery",
@@ -154,7 +162,7 @@
                   "hidden": false,
                   "query": {
                     "datasource": {
-                      "name": "aflp8if8d8j5sd"
+                      "name": "${DS_PROMETHEUS}"
                     },
                     "group": "prometheus",
                     "kind": "DataQuery",
@@ -272,7 +280,7 @@
                   "hidden": false,
                   "query": {
                     "datasource": {
-                      "name": "aflp8if8d8j5sd"
+                      "name": "${DS_PROMETHEUS}"
                     },
                     "group": "prometheus",
                     "kind": "DataQuery",
@@ -390,7 +398,7 @@
                   "hidden": false,
                   "query": {
                     "datasource": {
-                      "name": "aflp8if8d8j5sd"
+                      "name": "${DS_PROMETHEUS}"
                     },
                     "group": "prometheus",
                     "kind": "DataQuery",
@@ -486,7 +494,7 @@
                   "hidden": false,
                   "query": {
                     "datasource": {
-                      "name": "aflp8if8d8j5sd"
+                      "name": "${DS_PROMETHEUS}"
                     },
                     "group": "prometheus",
                     "kind": "DataQuery",
@@ -604,7 +612,7 @@
                   "hidden": false,
                   "query": {
                     "datasource": {
-                      "name": "aflp8if8d8j5sd"
+                      "name": "${DS_PROMETHEUS}"
                     },
                     "group": "prometheus",
                     "kind": "DataQuery",

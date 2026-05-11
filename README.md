@@ -11,8 +11,8 @@ A small observability stack: A Python-Flask app instrumented with Prometheus met
 
 ### Step 1 - Clone/Download the Project
 
-`git clone ...`
-`cd ...`
+`git clone https://github.com/Dominicdaniel86/Local-Monitoring-Stack`  
+`cd Local-Monitoring-Stack`
 
 ### Step 2 - Start the containers
 
@@ -29,6 +29,7 @@ Optionally use the *detach* option to free up the console:
 | Flask App | <http://localhost:5000>  |
 | Prometheus | <http://localhost:9090> |
 | Grafana | <http://localhost:3000>    |
+| cadvisor | <http://localhost:8080>   |
 
 ## Step 4 - Generate Some Traffic
 
@@ -60,3 +61,45 @@ curl http://localhost:5000/metrics
     - `flask_request_latency_seconds_bucket` - latency histogram
 
 ### Step 6 - Open Grafana
+
+1. Log in
+
+    - URL: <http://localhost:3000>
+    - Username: `admin`
+    - Password: `admin`
+
+2. Add Prometheus as a data source
+
+    2.1 Go to Connections -> Data Sources -> Add data source
+    2.2 Choose Prometheus
+    2.3 Set URL to <http://prometheus:9090> (use container name, not localhost)
+    2.4 Click Save & Test
+
+3. Import the Grafana dashboard
+
+    3.1 Got to Dashboards -> New -> Import
+    3.2 Copy-paste the content of `/grafana/test-dashboard.json` into the JSON field
+    3.3 Click on Load and give the Dashboard a name
+
+### Step 7 - AWS Deployment
+
+1. Connect to your EC2 instance via SSH
+2. Execute the following commands to install git:
+
+    ```bash
+    sudo dnf update -y || sudo yum update -y
+    sudo dnf install -y git git || sudo yum install -y git
+    ```
+
+3. Clone the repository (like in step 1)
+4. Execute the bash setup script:
+
+    ```bash
+    cd Local-Monitoring-Stack/scripts
+    chmod +x setup-ec2.sh
+    ./setup-ec2.sh
+    ```
+
+5. Follow steps 2 to 6 on the EC2 instance
+
+> [!Info] Note that you might need to assign an IPV-4 address to your EC2 instance in order to open the Prometheus/Grafana interfaces, as localhost is not going to work here.
