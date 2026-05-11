@@ -11,3 +11,8 @@ scrape_configs:
     static_configs:
       - targets: ['flask_app:5000'] # Assuming Flask app exposes metrics on
     metrics_path: /metrics
+
+  # Scrape cAdvisor for container metrics
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080'] # Assuming cAdvisor is running and exposing metrics on port 8080
